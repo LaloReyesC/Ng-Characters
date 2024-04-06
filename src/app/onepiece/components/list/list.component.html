@@ -1,0 +1,55 @@
+<div class="row text-center">
+  <div class="col">
+    <h3>Piratas de la peor generación</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table" *ngIf="characters.length > 0; else noContentTable;">
+      <thead class="text-center bg-dark text-white">
+        <th class="p-2">
+          Pirata
+        </th>
+        <th class="p-2">
+          Recompensa
+        </th>
+        <th class="p-2">
+          Acciones
+        </th>
+      </thead>
+      <tbody class="text-center" *ngFor="let character of characters;">
+        <td>{{character.name}}</td>
+        <td>{{character.bountry | currency}}</td>
+        <td>
+          <p>
+            <a role="button"
+              class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+              (click)="removeCharacter(character.id)">Eliminar</a>
+          </p>
+        </td>
+      </tbody>
+    </table>
+
+    <ng-template #noContentTable>
+      <thead class="text-center bg-dark text-white">
+        <th>
+          Pirata
+        </th>
+        <th>
+          Recompensa
+        </th>
+        <th>
+          Acciones
+        </th>
+      </thead>
+      <tbody class="text-center">
+        <td colspan="2">No hay piratas de la peor generación registrados</td>
+      </tbody>
+    </ng-template>
+  </div>
+</div>
